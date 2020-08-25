@@ -26,7 +26,6 @@ class UserLocationViewController: UIViewController {
     
     private var userLocationLayer: YMKUserLocationLayer!
     private let TARGET_LOCATION = YMKPoint(latitude: 55.755785999230845, longitude: 37.61763300000001)
-    private var enabledLocation = true
     private let geocoder = CLGeocoder()
     private let scale = UIScreen.main.scale
 
@@ -108,8 +107,9 @@ private extension UserLocationViewController {
         mapView.mapWindow.map.isRotateGesturesEnabled = false
         mapView.mapWindow.map.move(with: YMKCameraPosition(target: TARGET_LOCATION, zoom: 14, azimuth: 0, tilt: 0))
 
-        userLocationLayer = mapView.mapWindow.map.userLocationLayer
-        userLocationLayer.isEnabled = true
+        let mapKit = YMKMapKit.sharedInstance()
+        userLocationLayer = mapKit.createUserLocationLayer(with: mapView.mapWindow)
+        userLocationLayer.setVisibleWithOn(true)
         userLocationLayer.isHeadingEnabled = true
 
         mapView.mapWindow.map.addCameraListener(with: self)
@@ -139,7 +139,6 @@ private extension UserLocationViewController {
                     if let house = p.first?.subThoroughfare {
                         self.searchText.text = "\(street) \(house)"
                     }
-                    self.enabledLocation = false
                 }
             } else {
                 self.searchText.text = "Error ..."
@@ -164,7 +163,6 @@ extension UserLocationViewController: YMKMapCameraListener {
                                  finished: Bool) {
         if finished {
             updateLabel(cameraPosition.target)
-            userLocationLayer.isEnabled = enabledLocation
         }
     }
 }

@@ -278,19 +278,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-TestTaskITLavka/Pods-TestTaskITLavka-resources.sh",
-				"${PODS_ROOT}/YandexMapKit/YandexMapKit.framework/Versions/A/Resources/YandexMapKit.bundle",
-				"${PODS_ROOT}/YandexRuntime/YandexRuntime.framework/Versions/A/Resources/YandexRuntime.bundle",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTaskITLavka/Pods-TestTaskITLavka-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexMapKit.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/YandexRuntime.bundle",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TestTaskITLavka/Pods-TestTaskITLavka-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TestTaskITLavka/Pods-TestTaskITLavka-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestTaskITLavka/Pods-TestTaskITLavka-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		774102521502E3D6A7185FFD /* [CP] Check Pods Manifest.lock */ = {
